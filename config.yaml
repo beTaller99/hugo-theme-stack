@@ -3,6 +3,9 @@ module:
         extended: true
         min: "0.87.0"
 
+# 上面的保持不变，表明这是一个submodule
+# 下面的参考exampleSite的yml配置，从exampleSite的config.yml的params开始参考
+
 params:
     mainSections:
         - post
@@ -20,12 +23,13 @@ params:
 
     sidebar:
         compact: false
-        emoji:
-        subtitle:
+        emoji: ✅
+        subtitle: hello~
         avatar:
             enabled: true
             local: true
-            src: img/avatar.png
+            # 静态资源存放在stack目录下的asset目录,因为当前配置文件是在stack目录下，所以静态资源目录的路径就是当前目录的asset目录
+            src: /img/OIP.png
 
     article:
         math: false
@@ -112,8 +116,22 @@ params:
             id:
 
     widgets:
-        homepage: []
-        page: []
+        # homepage: []
+        # page: []
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 10
+        page:
+            - type: toc
+
 
     opengraph:
         twitter:
@@ -141,3 +159,18 @@ params:
             enabled: true
         content:
             enabled: true
+
+
+# 注意yml的语法是下一行缩进2个空格
+menu:
+  main:
+    - indetifier: categories
+      name: categories
+      url: /categories/
+      weight: 30
+    - indetifier: tag
+      name: tags
+      url: /tags/
+      weight: 30
+
+
