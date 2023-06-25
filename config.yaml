@@ -174,3 +174,21 @@ menu:
       weight: 30
 
 
+markup:
+    goldmark:
+        renderer:
+            ## Set to true if you have HTML content inside Markdown
+            unsafe: false
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 1
+    highlight:
+        noClasses: false # 是否为代码生成的html标签中设置class属性
+        codeFences: true # 指定是否启用代码块标识符（三个反引号)，默认为true。如果设置为false，代码块可以使用缩进进行标识。
+        guessSyntax: true # 猜测代码的语法
+        lineNoStart: 1 # 代码起始行号
+        lineNos: false  # 显示代码行号
+        lineNumbersInTable: false # 指定是否在代码块的行号列中显示行号
+        tabWidth: 4 # 指定代码块中制表符的宽度
+        style: monokai   #代码样式
