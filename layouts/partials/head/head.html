@@ -27,42 +27,44 @@
 
 <!-- MathJax configuration for LaTeX support -->
 <!-- 由于 mathjax 在渲染 algin 时有问题, 故尝试使用 Katex -->
-<!-- <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],  // 行内公式定界符
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],  // 块级公式定界符
-        processEscapes: true,
-        tags: 'ams'  // 启用 AMS 数学环境
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script> -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],  // 行内公式定界符
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],  // 块级公式定界符
+      processEscapes: true,
+      tags: 'ams',  // 启用 AMS 数学环境
+      packages: {'[+]': ['ams', 'newcommand']}  // 确保加载 ams 和 newcommand 包
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
 
 
 
 <!-- 下面的是 Katex 配置 -->
   <!-- KaTeX CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/katex.min.css" integrity="sha384-26tGhwA7XzaiZ8t1bz4gJwnCVOv/QuSG/lgJ7HrQRriqC1iVe+vmHME3XT0F0VlF" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/katex.min.css" integrity="sha384-26tGhwA7XzaiZ8t1bz4gJwnCVOv/QuSG/lgJ7HrQRriqC1iVe+vmHME3XT0F0VlF" crossorigin="anonymous"> -->
 
 <!-- KaTeX JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/katex.min.js" integrity="sha384-RDUPx7vF+fpjW3y2mUpt5J2bA21RrAaTLFZ5vG6P/Q7xoxotKVgmTp2ovq5XIPho" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/contrib/auto-render.min.js" integrity="sha384-rFMmbMxMD0fRNqOtXoexvcl+yTMfCF/gGbvjgWFS07BzhiwHYj1xxh2IgfqQ5/5I" crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/katex.min.js" integrity="sha384-RDUPx7vF+fpjW3y2mUpt5J2bA21RrAaTLFZ5vG6P/Q7xoxotKVgmTp2ovq5XIPho" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.8/contrib/auto-render.min.js" integrity="sha384-rFMmbMxMD0fRNqOtXoexvcl+yTMfCF/gGbvjgWFS07BzhiwHYj1xxh2IgfqQ5/5I" crossorigin="anonymous"></script> -->
 
-<script>
-// 1. delimiters - 定义用于标记数学公式的定界符。这可以包括用于行内数学和显示（块）数学的定界符。
-// 2. throwOnError - 当值为 true 时，如果遇到无法识别的 LaTeX 命令或表达式，KaTeX 将引发错误；当值为 false 时，它将呈现错误消息，并在可能的情况下尽量继续渲染公式。
-// 3. errorColor - 在 throwOnError 设置为 false 并且有错误发生时，错误的 LaTeX 源代码将会以该选项定义的颜色显示。
-// 4. strict - 控制KaTeX如何处理不精确或有问题的LaTeX代码。它可以设置为 true，false，或者是一个函数，函数决定了如何处理每个错误。
-// 5. macros - 允许您定义自定义宏，在渲染公式时可以使用这些宏。
-// 6. maxSize - 定义渲染公式的最大大小（以 em 为单位）。这可以帮助防止极大的公式占用过多空间。
-// 7. maxExpand - 限制宏展开的次数，这有助于防止宏展开引起的性能问题。
-// 8. allowedProtocols - 定义在 \href 命令中接受的协议列表。
-// 9. ignoredTags - 包含不应由KaTeX渲染公式的HTML标签名称的数组。例如，你可能不希望在 <script> 或 <textarea> 标签内的文本被视为数学文本。
-// 10. displayMode - 控制公式是内联显示还是块级显示（类似于 LaTeX 中的 \textstyle 与 \displaystyle 的区别）。
+<!-- 1. delimiters - 定义用于标记数学公式的定界符。这可以包括用于行内数学和显示（块）数学的定界符。
+2. throwOnError - 当值为 true 时，如果遇到无法识别的 LaTeX 命令或表达式，KaTeX 将引发错误；当值为 false 时，它将呈现错误消息，并在可能的情况下尽量继续渲染公式。
+3. errorColor - 在 throwOnError 设置为 false 并且有错误发生时，错误的 LaTeX 源代码将会以该选项定义的颜色显示。
+4. strict - 控制KaTeX如何处理不精确或有问题的LaTeX代码。它可以设置为 true，false，或者是一个函数，函数决定了如何处理每个错误。
+5. macros - 允许您定义自定义宏，在渲染公式时可以使用这些宏。
+6. maxSize - 定义渲染公式的最大大小（以 em 为单位）。这可以帮助防止极大的公式占用过多空间。
+7. maxExpand - 限制宏展开的次数，这有助于防止宏展开引起的性能问题。
+8. allowedProtocols - 定义在 \href 命令中接受的协议列表。
+9. ignoredTags - 包含不应由KaTeX渲染公式的HTML标签名称的数组。例如，你可能不希望在 <script> 或 <textarea> 标签内的文本被视为数学文本。
+10. displayMode - 控制公式是内联显示还是块级显示（类似于 LaTeX 中的 \textstyle 与 \displaystyle 的区别）。 -->
+<!-- <script>
+
   document.addEventListener("DOMContentLoaded", function() {
       renderMathInElement(document.body, {
           delimiters: [
@@ -86,4 +88,4 @@
           // 其他选项...
       });
   });
-</script>
+</script> -->
